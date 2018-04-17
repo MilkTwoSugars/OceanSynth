@@ -63,7 +63,7 @@ function Bubble() {
 
 function drawWave() {
     noStroke();
-    fill(waterColour);
+    fill(255);
     // We are going to draw a polygon out of the wave points
     beginShape();
 
