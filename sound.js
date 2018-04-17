@@ -41,7 +41,6 @@ function playNote(data) {
         osc = new p5.Oscillator(oscType);
         osc.amp(0);
         osc.start();
-        osc.phase(1)
         osc.fade(0.075,0.25);
         var freq = midiToFreq(data[1])
         osc.freq(freq);
@@ -50,7 +49,7 @@ function playNote(data) {
         bubbles.push(new Bubble());
         oscs[data[1]] = osc;
     } else {
-        oscs[data[1]].fade(0,1);
+        //oscs[data[1]].fade(0,1);
         oscs[data[1]].stop(1.1);
         //setTimeout(function() {
         //
