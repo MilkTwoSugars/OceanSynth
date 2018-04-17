@@ -24,7 +24,7 @@ function setup() {
 }
 
 function draw() {
-    background(50, 100, 150);
+    background(waterColour);
     drawWave();
     for (var i = 0; i < bubbles.length; i++) {
         bubbles[i].move();
