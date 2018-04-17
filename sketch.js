@@ -1,4 +1,4 @@
-var bubbles = []; // array of Jitter objects
+var bubbles = [];
 
 var buoyObj;
 var buoyVisible = false;
@@ -6,9 +6,12 @@ var buoyVisible = false;
 var h, w;
 var yoff = 0.0;
 
+var waterColour;
+
 function setup() {
 
     oscType = 'sine';
+    waterColour = 'deepskyblue';
 
     h = windowHeight;
     w = windowWidth;
@@ -53,14 +56,14 @@ function Bubble() {
 
     this.display = function () {
         noStroke();
-        fill(50, 100, 150);
+        fill(waterColour);
         ellipse(this.x, this.y, this.diameter, this.diameter);
     };
 }
 
 function drawWave() {
     noStroke();
-    fill(255);
+    fill(waterColour);
     // We are going to draw a polygon out of the wave points
     beginShape();
 
@@ -115,18 +118,7 @@ function Buoy(a, b) {
 
     this.display = function () {
         noStroke();
-        if (oscType == "sine") {
-            fill('deepskyblue');
-        }
-        if (oscType == "sawtooth") {
-            fill('firebrick');
-        }
-        if (oscType == "square") {
-            fill('MediumSeaGreen');
-        }
-        if (oscType == "triangle") {
-            fill('darkorange');
-        }
+        fill(waterColour);
         ellipse(this.x, this.y, 50, 50);
     };
 
@@ -136,15 +128,19 @@ function oscTypeCycle(type) {
     switch (type) {
         case "sine":
             console.log("Changing to sawtooth");
-            return "sawtooth"
+            waterColour = 'firebrick';
+            return "sawtooth";
         case "sawtooth":
             console.log("Changing to triangle");
-            return "triangle"
+            waterColour = 'darkorange';
+            return "triangle";
         case "triangle":
             console.log("Changing to square");
-            return "square"
+            waterColour = 'mediumseagreen';
+            return "square";
         case "square":
             console.log("Changing to sine");
+            waterColour = 'deepskyblue';
             return "sine";
     }
 }
