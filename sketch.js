@@ -27,8 +27,10 @@ function draw() {
     background(waterColour);
     drawWave();
     for (var i = 0; i < bubbles.length; i++) {
-        bubbles[i].move();
-        bubbles[i].display();
+        if (!bubbles[i].deleted) {
+            bubbles[i].move();
+            bubbles[i].display();
+        }
     }
 
     if (buoyVisible) {
@@ -43,14 +45,15 @@ function Bubble() {
     this.y = h;
     this.diameter = random(10, 30);
     this.speed = 1;
+    this.deleted = false;
 
     this.move = function () {
         this.x += random(-this.speed, this.speed);
         this.y -= 3;
 
-        // if (this.y < -2) {
-        //     this.y = h + 2;
-        // }
+         if (this.y < -2) {
+             this.deleted = true;
+         }
 
     };
 
