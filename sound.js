@@ -49,7 +49,7 @@ function playNote(data) {
         bubbles.push(new Bubble());
         oscs[data[1]] = osc;
     } else {
-        //oscs[data[1]].fade(0,1);
+        oscs[data[1]].fade(0,1);
         oscs[data[1]].stop(1.1);
         //setTimeout(function() {
         //
