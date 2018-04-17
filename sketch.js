@@ -109,6 +109,10 @@ function mouseClicked() {
     oscType = oscTypeCycle(oscType);
 }
 
+function keyPressed() {
+    bubbles.push(new Bubble());
+}
+
 function Buoy(a, b) {
     this.x = a;
     this.y = b;
