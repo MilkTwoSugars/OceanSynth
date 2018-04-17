@@ -40,8 +40,8 @@ function playNote(data) {
         console.log("Note played")
         osc = new p5.Oscillator(oscType);
         osc.amp(0);
-        osc.start();
         osc.fade(0.075,0.25);
+        osc.start();
         var freq = midiToFreq(data[1])
         osc.freq(freq);
         // lastOsc.osc = osc;
