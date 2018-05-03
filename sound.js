@@ -1,4 +1,5 @@
 var midi, data;
+var soundStarted = false;
 var oscs = {};
 var oscType;
 var waves;
@@ -62,4 +63,12 @@ function playNoise() {
     waves.amp(0)
     waves.start();
     waves.fade(0.01, 1)
+}
+
+function checkAudioContext() {
+    if (!soundStarted) {
+        getAudioContext().resume().then(() => {
+            soundStarted = true;
+        });
+    }
 }

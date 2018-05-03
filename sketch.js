@@ -98,7 +98,7 @@ function drawWave() {
 }
 
 function mouseClicked() {
-
+    checkAudioContext();
     if (!buoyVisible) {
         //playNoise();
         buoyObj = new Buoy(mouseX, mouseY);
